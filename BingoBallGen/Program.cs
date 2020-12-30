@@ -10,14 +10,27 @@ namespace BingoBallGen
     {
         static void Main(string[] args)
         {
-            GenerateCard(100);
+            //int ctr = 100;
+            ////while (ctr > 0)
+            ////{
+            //    Card card = new Card();
+            //    card.GenerateCard();
+            //    //Console.WriteLine("Card generated" + ctr);
+            //    //Card.GenerateCard();
+            //    ctr -= 1;
+            ////}
+
+            //foreach(var num in card.intRowB)
+            //{
+            //    Console.WriteLine("B" + num);
+            //}
+            
+
             Console.Write("Press Y to start the game. [D] or [d] to draw a ball." + Environment.NewLine);
 
             char theKey = Console.ReadKey().KeyChar;
 
-            //Ball ball = new Ball();
-
-            int ctr = 0;
+            
 
             if (theKey == 'Y' || theKey == 'y')
             {
@@ -104,110 +117,6 @@ namespace BingoBallGen
             Ball.totalBalls = 75; //reset ball counter
         }
 
-        static void GenerateCard(int amt)
-        {
-
-            while (amt > 0)
-            {
-                Console.WriteLine("Generating Card...");
-
-                List<int> rowB = new List<int>();
-                List<int> rowI = new List<int>();
-                List<int> rowN = new List<int>();
-                List<int> rowG = new List<int>();
-                List<int> rowO = new List<int>();
-
-
-                Random rnd = new Random(Guid.NewGuid().GetHashCode());
-
-                for (int i = 0; i < 5; i++)
-                {
-                    int tmp = rnd.Next(1, 15);
-
-                    if (!rowB.Contains(tmp))
-                    {
-                        Console.WriteLine("B" + tmp);
-                        rowB.Add(tmp);
-                    }
-                    else
-                    {
-                        i -= 1; // deincrement counter and try again
-                    }
-
-                }
-                Console.WriteLine(Environment.NewLine);
-
-                for (int i = 0; i < 5; i++)
-                {
-                    int tmp = rnd.Next(16, 30);
-
-                    if (!rowI.Contains(tmp))
-                    {
-                        Console.WriteLine("I" + tmp);
-                        rowI.Add(tmp);
-                    }
-                    else
-                    {
-                        i -= 1; // deincrement counter and try again
-                    }
-
-                }
-                Console.WriteLine(Environment.NewLine);
-
-                for (int i = 0; i < 4; i++)
-                {
-                    int tmp = rnd.Next(31, 45);
-                    if (i == 2)
-                        Console.WriteLine("Free");
-
-                    if (!rowN.Contains(tmp))
-                    {
-                        Console.WriteLine("N" + tmp);
-                        rowN.Add(tmp);
-                    }
-                    else
-                    {
-                        i -= 1; // deincrement counter and try again
-                    }
-
-                }
-                Console.WriteLine(Environment.NewLine);
-
-                for (int i = 0; i < 5; i++)
-                {
-                    int tmp = rnd.Next(46, 60);
-
-                    if (!rowG.Contains(tmp))
-                    {
-                        Console.WriteLine("G" + tmp);
-                        rowG.Add(tmp);
-                    }
-                    else
-                    {
-                        i -= 1; // deincrement counter and try again
-                    }
-
-                }
-                Console.WriteLine(Environment.NewLine);
-
-                for (int i = 0; i < 5; i++)
-                {
-                    int tmp = rnd.Next(61, 75);
-
-                    if (!rowO.Contains(tmp))
-                    {
-                        Console.WriteLine("O" + tmp);
-                        rowO.Add(tmp);
-                    }
-                    else
-                    {
-                        i -= 1; // deincrement counter and try again
-                    }
-
-                }
-                Console.WriteLine(Environment.NewLine);
-                amt -= 1;
-            }
-        }
+        
     }
 }
